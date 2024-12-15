@@ -1,0 +1,327 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&display=swap');
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #65558F;
+    color: white;
+    padding: 20px 20px; /* Увеличенные вертикальные отступы */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Увеличенная высота шапки */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left .logo {
+    height: 70px; /* Увеличенная высота логотипа */
+    width: auto; /* Автоматическая ширина */
+}
+
+.header-left h1 {
+    margin: 0;
+    color: white;
+    font-size: 40px;
+    font-family: 'Kumar One', cursive;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.header-right {
+    flex: 1;
+    text-align: right;
+}
+
+.header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-form {
+    display: inline-block;
+    margin: 0 auto; /* Центрирование поискового поля */
+}
+
+.search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 500px; /* Увеличенная ширина поля для поиска */
+}
+
+.search-button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #524574;
+    color: white;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #302944;
+}
+
+.footer {
+    background-color: #65558F;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.content {
+    padding: 20px;
+    margin-bottom: 60px; /* Учитываем высоту футера */
+}
+
+/* File Menu */
+.file-list {
+    display: flex;
+    flex-direction: column; /* Расположение кнопок столбиком */
+    gap: 10px;
+    margin-top: 20px;
+    align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+.file-item {
+    width: 100%; /* Ширина кнопки во весь экран */
+    max-width: 95%; /* Максимальная ширина кнопки */
+    /* Убираем margin: 0 auto; чтобы кнопки не центрировались */
+}
+
+.file-item .full-width-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Градиентный фон */
+    color: #65558F; /* Цвет текста на кнопке */
+    text-decoration: none;
+    border: 1px solid #65558F; /* Граница кнопки */
+    border-radius: 8px; /* Более современные скругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для создания эффекта поднятия */
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Плавные переходы */
+}
+
+.file-item .full-width-button:hover {
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Градиентный фон при наведении */
+    color: #493971; /* Цвет текста при наведении */
+    transform: translateY(-2px); /* Легкое поднятие кнопки при наведении */
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    text-align: left; /* Выравнивание по левому краю */
+}
+
+.pagination a {
+    color: #65558F;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #65558F;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #65558F;
+    color: white;
+}
+
+.pagination .current {
+    font-weight: bold;
+    color: #65558F;
+}
+
+/* File Actions */
+.file-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.download-button, .favorite-button, .remove-favorite-button, .delete-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.download-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.favorite-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.favorite-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.remove-favorite-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.remove-favorite-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.delete-button {
+    background-color: #dc3545; /* Красный цвет */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Темно-красный цвет при наведении */
+    transform: translateY(-2px); /* Легкое поднятие кнопки при наведении */
+}
+
+/* Form Containers */
+.form-container, .profile-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container h2, .profile-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container form, .profile-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form p, .profile-container form p {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.form-container form button, .profile-container form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container form button:hover, .profile-container form button:hover {
+    background-color: #0056b3;
+}
+
+.profile-container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.profile-container a:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Стили для заголовка "Main page" */
+.page-title {
+    color: #65558F; /* Цвет текста, как у "Page..." */
+    font-size: 24px; /* Размер текста */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+
+/* styles.css */
+.uploaded-date {
+    color: #65558F; /* Цвет текста, как у .page-title */
+    font-size: 16px; /* Уменьшенный размер шрифта */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+
+/* Контейнер для заголовка и сообщения */
+.page-title-container {
+    display: flex;
+    justify-content: space-between; /* Располагаем элементы по краям */
+    align-items: center; /* Выравниваем по вертикали */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для заголовка */
+.page-title {
+    color: #65558F;
+    font-size: 24px;
+    margin: 0; /* Убираем отступы */
+}
+
+/* Стили для сообщения для незарегистрированных пользователей */
+.unauthenticated-message {
+    font-size: 16px;
+    color: #65558F;
+    margin: 0; /* Убираем отступы */
+}
+
+.unauthenticated-message p {
+    margin: 0; /* Убираем отступы у абзаца */
+}
