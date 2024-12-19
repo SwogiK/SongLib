@@ -9,11 +9,39 @@ from django.contrib.auth.decorators import login_required
 
 # Главная страница
 def home(request):
-    files = UploadedFile.objects.all()  # Получаем все загруженные файлы
-    paginator = Paginator(files, 10)  # Показываем 10 файлов на странице
-    page_number = request.GET.get('page')  # Получаем номер текущей страницы
+    # Получаем все загруженные файлы
+    files = UploadedFile.objects.all()
+
+    # Список существующих файлов (например, с ID 1, 2, 3, 4, 5)
+    existing_file_ids = [file.id for file in files]
+
+    # Создаем список кнопок для перехода на страницы file_detail_1, file_detail_2 и т.д.
+    special_buttons = []
+    if 1 in existing_file_ids:
+        special_buttons.append({'title': 'File Detail 1', 'url': 'file_detail_1', 'id': 1})
+    if 2 in existing_file_ids:
+        special_buttons.append({'title': 'File Detail 2', 'url': 'file_detail_2', 'id': 2})
+    if 3 in existing_file_ids:
+        special_buttons.append({'title': 'File Detail 3', 'url': 'file_detail_3', 'id': 3})
+    if 4 in existing_file_ids:
+        special_buttons.append({'title': 'File Detail 4', 'url': 'file_detail_4', 'id': 4})
+    if 5 in existing_file_ids:
+        special_buttons.append({'title': 'File Detail 5', 'url': 'file_detail_5', 'id': 5})
+
+    # Объединяем кнопки и файлы в один список
+    all_items = list(special_buttons) + list(files)
+
+    # Настройка пагинации (показывать по 10 элементов на странице)
+    paginator = Paginator(all_items, 10)
+    page_number = request.GET.get('page')  # Получаем номер текущей страницы из GET-параметра
     page_obj = paginator.get_page(page_number)  # Получаем объект страницы
-    return render(request, 'home.html', {'page_obj': page_obj})  # Рендерим шаблон с данными
+
+    # Передаем объект страницы в шаблон
+    context = {
+        'page_obj': page_obj,
+    }
+    return render(request, 'home.html', context)
+
 
 # Страница загрузки файлов
 def load_song(request):

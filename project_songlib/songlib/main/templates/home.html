@@ -13,13 +13,21 @@
 </div>
 
 <div class="file-list">
-    {% for file in page_obj %}
-    <div class="file-item">
-        <a href="{% url 'file_detail' file.id %}" class="full-width-button">{{ file.title }}</a>
-    </div>
+    <!-- Отображение кнопок и файлов -->
+    {% for item in page_obj %}
+        {% if item.url %}  <!-- Если элемент - кнопка -->
+        <div class="file-item">
+            <a href="{% url item.url item.id %}" class="full-width-button">{{ item.title }}</a>
+        </div>
+        {% else %}  <!-- Если элемент - файл -->
+        <div class="file-item">
+            <a href="{% url 'file_detail' item.id %}" class="full-width-button">{{ item.title }}</a>
+        </div>
+        {% endif %}
     {% endfor %}
 </div>
 
+<!-- Пагинация -->
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
