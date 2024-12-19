@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ file.title }}{% endblock %}
+
+{% block content %}
+<h1 class="page-title">{{ file.title }} <small class="page-title">by {{ file.user.username }}</small></h1>
+<p class="uploaded-date">Uploaded on: {{ file.uploaded_at|date:"F j, Y, H:i" }}</p>
+<img src="{% static 'img/test_file_fiveEmpty#1.png' %}" alt="File Image" class="file-image" />
+
+<div class="file-actions">
+    <a href="{{ file.file.url }}" download class="download-button">Download</a>
+    <form action="{% url 'add_to_favorites' file.id %}" method="post" class="favorite-form">
+        {% csrf_token %}
+        <button type="submit" class="favorite-button">Add to Favorites</button>
+    </form>
+    <form action="{% url 'remove_from_favorites' file.id %}" method="post" class="favorite-form">
+        {% csrf_token %}
+        <button type="submit" class="remove-favorite-button">Remove from Favorites</button>
+    </form>
+    {% if file.user == user %}
+    <form action="{% url 'delete_file' file.id %}" method="post" class="delete-form">
+        {% csrf_token %}
+        <button type="submit" class="delete-button">Delete File</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

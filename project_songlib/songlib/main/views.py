@@ -123,3 +123,25 @@ def delete_file(request, file_id):
     if file.user == request.user:
         file.delete()  # Удаляем файл
     return redirect('home')  # Перенаправляем на главную страницу
+
+
+#    файлы!!!!
+def file_detail_1(request, file_id):
+    file = get_object_or_404(UploadedFile, id=file_id)
+    return render(request, 'file_detail_1.html', {'file': file})
+
+def file_detail_2(request, file_id):
+    file = get_object_or_404(UploadedFile, id=file_id)
+    return render(request, 'file_detail_2.html', {'file': file})
+
+def file_detail_3(request, file_id):
+    file = get_object_or_404(UploadedFile, id=file_id)
+    return render(request, 'file_detail_3.html', {'file': file})
+
+def file_detail_4(request, file_id):
+    file = get_object_or_404(UploadedFile, id=file_id)
+    return render(request, 'file_detail_4.html', {'file': file})
+
+def file_detail_5(request, file_id):
+    file = get_object_or_404(UploadedFile, id=file_id)
+    return render(request, 'file_detail_5.html', {'file': file})
