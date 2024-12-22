@@ -10,5 +10,10 @@
         {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
+    {% if form.errors %}
+        <div class="error-message">
+            <p>Error: {{ form.file.errors }}</p>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -46,15 +46,16 @@ def home(request):
 # Страница загрузки файлов
 def load_song(request):
     if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)  # Создаем форму с данными из запроса
+        form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            uploaded_file = form.save(commit=False)  # Сохраняем форму, но не записываем в базу данных
-            uploaded_file.user = request.user  # Устанавливаем текущего пользователя
-            uploaded_file.save()  # Сохраняем файл в базу данных
-            return redirect('home')  # Перенаправляем на главную страницу
+            uploaded_file = form.save(commit=False)
+            uploaded_file.user = request.user
+            uploaded_file.save()
+            return redirect('home')
     else:
-        form = UploadFileForm()  # Создаем пустую форму
-    return render(request, 'load_song.html', {'form': form})  # Рендерим шаблон с формой
+        form = UploadFileForm()
+    return render(request, 'load_song.html', {'form': form})
+
 
 # Страница поиска
 def search(request):
