@@ -44,6 +44,7 @@ def home(request):
 
 
 # Страница загрузки файлов
+@login_required
 def load_song(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -105,11 +106,13 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})  # Рендерим шаблон с формой
 
 # Страница выхода
+@login_required
 def logout_view(request):
     logout(request)  # Выходим из системы
     return redirect('home')  # Перенаправляем на главную страницу
 
 # Страница профиля
+@login_required
 def profile(request):
     return render(request, 'profile.html')  # Рендерим шаблон профиля
 
