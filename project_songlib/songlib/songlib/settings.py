@@ -82,9 +82,11 @@ DATABASES = {
         'PASSWORD': '######',  # Пароль
         'HOST': 'localhost',  # Хост (обычно 'localhost' или IP-адрес)
         'PORT': '3306',  # Порт (по умолчанию 3306 для MySQL)
+        'OPTIONS': {
+            'timeout': 20,  # Ждать 20 сек перед попыткой записи
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

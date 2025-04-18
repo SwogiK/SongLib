@@ -5,9 +5,9 @@ from django.core.exceptions import ValidationError
 
 # Модель для загруженных файлов
 def validate_pdf_file(value):
-    """
-    Валидатор для проверки, что файл имеет формат PDF.
-    """
+    
+    #Валидатор для проверки, что файл имеет формат PDF.
+
     if not value.name.endswith('.pdf'):
         raise ValidationError('Only PDF files are allowed.')
 
